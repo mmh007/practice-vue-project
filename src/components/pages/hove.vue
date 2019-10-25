@@ -23,6 +23,32 @@
       伪类元素：active
     </div>
 
+    <div>
+      <input type="text" v-model="markma">
+      <p>双向绑定1: {{markma}}</p>
+    </div>
+    <textarea v-model="textarea" name="x" id="a" placeholder="请输入内容..." cols="30" rows="10"></textarea>
+      <div> 双向绑定2 : {{ textarea }}</div>
+    <br/>
+    <div>
+      <button style="width:100px;height:50px" @click="center +=1">点击加分</button>
+      <button style="width:100px;height:50px;color:red;background-color:#c5d0f7" @click="center -=1">点击减分</button>
+      <div>如果是坏<b>牟牟</b>请加:<span style="font-size:89px;color:red;">{{ center }}</span> 分</div>
+
+    </div>
+
+    <div>
+      <input type="checkbox" id="moumou" value="MouMou" v-model="checkboxMM">
+      <label for="moumou">MouMou</label>
+      <div>{{ checkboxMM }}</div>
+    </div>
+    <br/>
+    <br/>
+
+    <br/>
+    <br/><br/><br/>
+
+    <br/><br/>
   </div>
 </template>
 
@@ -43,7 +69,11 @@ export default {
       url: 'http://baidu.com', // 绑定url
       icon: true, // v-if
       tiveNav: true, // 伪类元素
-      grreruNav: true // 伪类元素
+      grreruNav: true, // 伪类元素
+      markma: '', // 双向绑定
+      textarea: '', // 双向绑定
+      center: 0,
+      checkboxMM: []
     }
   },
   methods: {
