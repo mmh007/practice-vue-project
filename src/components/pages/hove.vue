@@ -22,7 +22,6 @@
           :class="{active: tiveNav, grreru: grreruNav}">
       伪类元素：active
     </div>
-
     <div>
       <input type="text" v-model="markma">
       <p>双向绑定1: {{markma}}</p>
@@ -44,11 +43,12 @@
     </div>
     <br/>
     <br/>
+    <div>阿里图标
+      <i class="iconfont icon-reset">&#xe623;</i>
+      <i class="iconfont" >&#xe73f;</i>
+    </div>
 
-    <br/>
-    <br/><br/><br/>
 
-    <br/><br/>
   </div>
 </template>
 
@@ -90,22 +90,6 @@ export default {
 }
 </script>
 
-<style scoped>
-  div li{
-    width: 100%;
-    height: 60px;
-    margin: 0 auto;
-    line-height: 60px;
-    border: 1px solid red;
-    border-radius: 2px;
-    list-style-type: none;
-  }
-  .colorRed {
-    width: 400px;
-    height: 100px;
-    font-size: 19px;
-    border: 2px solid red;
-  }
-  .active {background: yellow;}
-  .grreru {color: green}
+<style lang="less" scoped>
+  @import 'hove';
 </style>
