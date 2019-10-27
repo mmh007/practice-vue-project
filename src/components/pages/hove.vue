@@ -39,13 +39,99 @@
     <div>
       <input type="checkbox" id="moumou" value="MouMou" v-model="checkboxMM">
       <label for="moumou">MouMou</label>
+      <input type="checkbox" id="mark" value="mark" v-model.lazy="checkboxMM">
+      <label for="mark">mark</label>
+      <input type="checkbox" id="huahua" value="huahua" v-model.trim="checkboxMM">
+      <label for="huahua">hua</label>
       <div>{{ checkboxMM }}</div>
     </div>
+    <button type="button" @click="submit">提交</button>
     <br/>
     <br/>
     <div>阿里图标
       <i class="iconfont icon-reset">&#xe623;</i>
       <i class="iconfont" >&#xe73f;</i>
+    </div>
+    <!-- 子组件 -->
+    <his-hove :prouect="checkboxMM">1</his-hove>
+    <!-- 注意插槽滴使用 -->
+    <div>
+      <strong>注意：这里将写插槽</strong>
+      <slot></slot>
+    </div>
+
+    <div style="width: 1280px; margin: 0 auto; font-family: '微软雅黑';">
+      <table bgcolor="#fff" width="1280" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td>
+            <img src="../../assets/logo.png" style="display: block" width="1280" height="100px">
+          </td>
+        </tr>
+      </table>
+      <!-- 表格 -->
+      <table width="1280" bgcolor="#fff" border="1"  cellspacing="0" cellpadding="10">
+        <tr> <!-- tr代表行 -->
+          <td color="#ee3">1.0</td> <!-- tr代表列 -->
+          <td align="left">
+            <font style="color: #004e96; font-size: 20px; font-weight: bold;" face="微软雅黑" >享会精彩观点看这里</font>
+          </td>
+          <td style="color:#00f316">1.2</td>
+          <td>1.3</td>
+          <td>1.4</td>
+          <td>1.5</td>
+        </tr>
+        <tr>
+          <td align="left" colspan="6">2.0</td> <!-- 合并行删除后6行 -->
+        </tr>
+        <tr>
+          <td rowspan="3">3.0</td> <!-- 合并列删除后2行 -->
+          <td align="left">3.1</td>
+          <td>3.2</td>
+          <td>3.3</td>
+          <td>3.4</td>
+          <td>1.5</td>
+        </tr>
+        <tr>
+          <td>4.0</td>
+          <td>4.1</td>
+          <td>4.2</td>
+          <td>4.3</td>
+          <td>4.4</td>
+        </tr>
+        <tr>
+          <td>5.0</td>
+          <td>5.1</td>
+          <td>5.2</td>
+          <td>5.3</td>
+          <td>5.4</td>
+        </tr>
+        <tr>
+          <td style="text-align: right " colspan="4">
+            <a href="javascript:;">6.0</a>
+          </td>
+          <td>6.1</td>
+          <td>6.2</td>
+          <!-- <td>6.3</td>
+          <td>6.4</td>
+          <td>6.5</td> -->
+        </tr>
+        <tr>
+          <td colspan="2">7.0</td>
+          <td>7.1</td>
+          <td>7.2</td>
+          <td>7.3</td>
+          <td>7.4</td>
+          <!-- <td>7.5</td> -->
+        </tr>
+        <tr>
+          <td>8.0</td>
+          <td>8.1</td>
+          <td>8.2</td>
+          <td>8.3</td>
+          <td>8.4</td>
+          <td>8.5</td>
+        </tr>
+      </table>
     </div>
 
 
@@ -53,8 +139,17 @@
 </template>
 
 <script>
+  import hisHove from './components/hishove'
 export default {
   name: 'hove',
+  // prop: {
+  //   prouect: {
+  //     type: Array
+  //   }
+  // },
+  components: {
+    hisHove
+  },
   data () {
     return {
       prouect: [
@@ -85,6 +180,10 @@ export default {
     },
     click2() {
       console.log('click....2')
+    },
+    submit() {
+      this.checkboxMM
+      console.log(this.checkboxMM)
     }
   }
 }
