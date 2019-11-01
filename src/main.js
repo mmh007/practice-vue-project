@@ -3,9 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import echarts from 'echarts'
 
 // 引入基础样式
 import './assets/style/app.less'
+
+Vue.prototype.$echarts = echarts;
 
 Vue.config.productionTip = false
 

@@ -32,7 +32,7 @@
     <div>
       <button style="width:100px;height:50px" @click="center +=1">点击加分</button>
       <button style="width:100px;height:50px;color:red;background-color:#c5d0f7" @click="center -=1">点击减分</button>
-      <div>如果是坏<b>牟牟</b>请加:<span style="font-size:89px;color:red;">{{ center }}</span> 分</div>
+      <div>如果是<b>m</b>请加:<span style="font-size:89px;color:red;">{{ center }}</span> 分</div>
 
     </div>
 
@@ -52,8 +52,14 @@
       <i class="iconfont icon-reset">&#xe623;</i>
       <i class="iconfont" >&#xe73f;</i>
     </div>
-    <!-- 子组件 -->
-    <his-hove :prouect="checkboxMM">1</his-hove>
+    <!-- 子组件1 -->
+    <his-hove :isprouect="isprouect" @onto="ontoss"></his-hove>
+    <div>
+      <div style="color:red;">父组件接收子组件的参数：<h3>{{ names }}</h3></div>
+    </div>
+    <!-- 子组件2 -->
+    <chi-Item :item="item" v-for="item in list" :key="item.id"></chi-Item>
+    <!-- <p v-for="item in list" :key="item.id">{{ item.title }}</p> -->
     <!-- 注意插槽滴使用 -->
     <div>
       <strong>注意：这里将写插槽</strong>
@@ -133,60 +139,93 @@
         </tr>
       </table>
     </div>
-
-
+    <!-- 组件 -->
+    <!-- <inFo :markMessge="markMessge"></inFo> -->
+      <h2>向子组件传值</h2>
+      <p>{{ this.markMessge }}</p>
+      <button @click="btn" :markMessge="markMessge">点击跳转info页面</button>
   </div>
 </template>
 
 <script>
+  // import inFo from './components/info'
   import hisHove from './components/hishove'
-export default {
-  name: 'hove',
-  // prop: {
-  //   prouect: {
-  //     type: Array
-  //   }
-  // },
-  components: {
-    hisHove
-  },
-  data () {
-    return {
-      prouect: [
-        'mark',
-        'moum',
-        'xiaoming'
-      ],
-      message: '页面加载于 ' + new Date().toLocaleString(), // v-bind
-      vif: true, // v-if
-      markMa: 'Hello vue.js!', // 事件绑定 @click,v-model
-      navHtml: `<h1 style="color:red">HTML模版语法</h1>`, // v-html 模版语法
-      url: 'http://baidu.com', // 绑定url
-      icon: true, // v-if
-      tiveNav: true, // 伪类元素
-      grreruNav: true, // 伪类元素
-      markma: '', // 双向绑定
-      textarea: '', // 双向绑定
-      center: 0,
-      checkboxMM: []
-    }
-  },
-  methods: {
-    onclickMarkMa () {
-      this.markMa = this.markMa.split('').reverse().join('')
+  import chiItem from './components/chi-item'
+  export default {
+    name: 'hove',
+    prop: {
+      isprouect: {
+        type: Array
+      },
+      markMessge: {
+        type: String
+      },
+      item: {
+        type: Array
+      }
     },
-    click1() {
-      console.log('click...1')
+    components: {
+      hisHove,
+      chiItem
     },
-    click2() {
-      console.log('click....2')
+    data () {
+      return {
+        isprouect: ['关羽','刘备'], // 向子组件传递参数
+        names: '', // 接收子组件传来的参数
+        prouect: [
+          'mark',
+          'moum',
+          'xiaoming'
+        ],
+        message: '页面加载于 ' + new Date().toLocaleString(), // v-bind
+        vif: true, // v-if
+        markMa: 'Hello vue.js!', // 事件绑定 @click,v-model
+        navHtml: `<h1 style="color:red">HTML模版语法</h1>`, // v-html 模版语法
+        url: 'http://baidu.com', // 绑定url
+        icon: true, // v-if
+        tiveNav: true, // 伪类元素
+        grreruNav: true, // 伪类元素
+        markma: '', // 双向绑定
+        textarea: '', // 双向绑定
+        center: 0,
+        checkboxMM: [],
+        markMessge: '11',
+        list: [
+          {id: '01', title: '我是父组件的第一项内容'},
+          {id: '02', title: '我是父组件的第二项内容'},
+          {id: '03', title: '我是父组件的第三项内容'}
+        ]
+      }
     },
-    submit() {
-      this.checkboxMM
-      console.log(this.checkboxMM)
+    // mounted() {
+    //   this.ontoss()
+    // },
+    methods: {
+      onclickMarkMa () {
+        this.markMa = this.markMa.split('').reverse().join('')
+      },
+      click1() {
+        console.log('click...1')
+      },
+      click2() {
+        console.log('click....2')
+      },
+      submit() {
+        this.checkboxMM
+        console.log(this.checkboxMM)
+      },
+      // 接收子组件向父组件 $emit 传来的参数
+      ontoss (data) {
+        this.names = data
+      },
+      // 点击跳转info页面
+      btn () {
+        this.$router.push({
+          path: 'info'
+        })
+      }
     }
   }
-}
 </script>
 
 <style lang="less" scoped>
