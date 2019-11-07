@@ -144,6 +144,44 @@
       <h2>向子组件传值</h2>
       <p>{{ this.markMessge }}</p>
       <button @click="btn" :markMessge="markMessge">点击跳转info页面</button>
+
+      <!-- element -->
+    <div class="block">
+      <span class="demonstration">默认 Hover 指示器触发</span>
+      <el-carousel height="150px">
+        <el-carousel-item v-for="item in 4" :key="item">
+          <h3>
+            <img src="https://ss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=857256197,868251498&fm=202&mola=new&crop=v1" alt="">
+          </h3>
+        </el-carousel-item>
+      </el-carousel>
+    </div>
+    <div class="block">
+      <span class="demonstration">Click 指示器触发</span>
+      <el-carousel trigger="click" height="150px">
+        <el-carousel-item v-for="item in 4" :key="item">
+          <h3>{{ item }}</h3>
+        </el-carousel-item>
+      </el-carousel>
+    </div>
+    
+    <!-- card卡片 -->
+    <div>
+      <el-row>
+        <el-col :span="8" v-for="(o, index) in 6" :key="o" :offset="index > 0 ? 0 : 0">
+          <el-card :body-style="{ padding: '0px' }">
+            <img src="https://ss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=857256197,868251498&fm=202&mola=new&crop=v1" class="image">
+            <div style="padding: 14px;">
+              <span>好吃的汉堡</span>
+              <div class="bottom clearfix">
+                <time class="time">{{ currentDate }}</time>
+                <el-button type="text" class="button">操作按钮</el-button>
+              </div>
+            </div>
+          </el-card>
+        </el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 
@@ -169,7 +207,7 @@
       chiItem
     },
     data () {
-      return {
+      return {currentDate: new Date(),
         isprouect: ['关羽','刘备'], // 向子组件传递参数
         names: '', // 接收子组件传来的参数
         prouect: [
