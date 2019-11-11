@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Hove from '@/components/pages/hove'
 import Info from '@/components/pages/components/info'
+import messageBox from '@/components/pages/messageBox'
 
 
 Vue.use(Router)
@@ -21,6 +22,10 @@ export default new Router({
       path: '/info',
       name: 'Info',
       component: Info
-    }, 
+    }, {
+      path: '/messageBox',
+      name: 'messageBox',
+      component: messageBox
+    }
   ]
 })

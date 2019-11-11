@@ -5,7 +5,8 @@
     <ul>
       <li>
         <a
-          href="https://vuejs.org"
+          href="javascript:;https://vuejs.org"
+          @click="coreDocs"
           target="_blank"
         >
           Core Docs
@@ -84,11 +85,19 @@
 </template>
 
 <script>
+import { async } from 'q'
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    async coreDocs() {
+      this.$router.push({
+        path: 'hove'
+      })
     }
   }
 }

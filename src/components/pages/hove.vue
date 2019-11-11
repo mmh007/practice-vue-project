@@ -1,6 +1,7 @@
 <template>
   <div id="hove">
     <h2>首页</h2>
+    <button @click="messageBox">点击进入messageBox弹窗功能</button>
     <h5>{{ prouect }},你好！</h5>
     <div>
       <li v-for="addHove in prouect" :key="addHove">{{ addHove }}:(v-for // 循环♻️)</li>
@@ -260,6 +261,14 @@
       btn () {
         this.$router.push({
           path: 'info'
+        })
+      },
+      /**
+       * 设置点击跳转功能
+       */ 
+      async messageBox() {
+        this.$router.push({
+          path: 'messageBox'
         })
       }
     }

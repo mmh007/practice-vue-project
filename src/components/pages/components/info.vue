@@ -1,6 +1,6 @@
 <template>
   <div class="info">
-    <h1>新页面</h1>
+    <h1 @click="hoveInfo">新页面</h1>
     <div class="aboeder" ref="chart"></div>
     <!-- <h2>{{ this.markMessge }}</h2> -->
   </div>
@@ -16,6 +16,9 @@ export default {
   data() {
     return {}
   },
+  mounted () {
+　　this.initCharts();
+　},
   methods: {
     initCharts () {
   　　let myChart = this.$echarts.init(this.$refs.chart);
@@ -36,11 +39,16 @@ export default {
       　　data: [5, 20, 36, 90, 10, 20]
   　　  }]
 　　  });
-　　}
-  },
-  mounted () {
-　　this.initCharts();
-　}
+　　},
+  /**
+   * 跳转上一个页面
+   */
+  async hoveInfo() {
+    this.$router.push({
+      path: 'hove'
+    })
+  }
+  }
 }
 </script>
 
