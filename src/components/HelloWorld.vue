@@ -13,8 +13,8 @@
       </li>
       <li>
         <a
-          href="https://forum.vuejs.org"
-          target="_blank"
+          href="javascript:;https://forum.vuejs.org"
+          @click="xuexi"
         >
           Forum
         </a>
@@ -89,6 +89,13 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    async xuexi() {
+      this.$router.push({
+        path: 'xuexi'
+      })
     }
   }
 }

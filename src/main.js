@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+
 // 自定义数据库
 // import apiConfig from './api'
 
@@ -18,7 +19,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.use(echarts)
 Vue.use(ElementUI)
-// Vue.prototype.$echarts = echarts;
+Vue.prototype.$echarts = echarts;
 
 Vue.config.productionTip = false
 
