@@ -6,19 +6,26 @@ import Hove from '@/components/pages/hove'
 import Info from '@/components/pages/components/info'
 import messageBox from '@/components/pages/messageBox'
 import Xuexi from '@/components/xuexi'
+// import addIndex from '@components/adddata/addindex'
+import addIndex from '@/components/addData/add-index'
 
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
-      path: '*',
-      name: 'index'
+    // {
+      // path: '*',
+      // name: 'index'
       // component: index,
       // redirect: '/index'
-    }, {
+    // }
+    {
       path: '/',
+      name: 'addIndex',
+      component: addIndex
+    }, {
+      path: '/HelloWorld',
       name: 'HelloWorld',
       component: HelloWorld
     }, {
