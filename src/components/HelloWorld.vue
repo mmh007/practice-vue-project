@@ -14,8 +14,8 @@
       </li>
       <li>
         <a
-          href="https://forum.vuejs.org"
-          target="_blank"
+          href="javascript:;https://forum.vuejs.org"
+          @click="xuexi"
         >
           Forum
         </a>
@@ -98,13 +98,18 @@ export default {
       this.$router.push({
         path: 'hove'
       })
+    },
+    async xuexi() {
+      this.$router.push({
+        path: 'xuexi'
+      })
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+// <!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="less" scoped>
 h1, h2 {
   font-weight: normal;
 }
